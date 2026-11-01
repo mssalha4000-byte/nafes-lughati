@@ -40,8 +40,8 @@ try{const x=localStorage.getItem('garden-teams-2026');if(x){const y=JSON.parse(x
 const $=id=>document.getElementById(id);
 function say(s){if(!state.sound||!('speechSynthesis' in window))return;try{speechSynthesis.cancel();const a=new SpeechSynthesisUtterance(s);a.lang='ar-SA';a.rate=.88;speechSynthesis.speak(a);}catch(e){}}
 function keep(){try{localStorage.setItem('garden-teams-2026',JSON.stringify({points:state.points}));}catch(e){}}
-function star(v=1){state.points[state.team]+=v;keep();say('أحسنت يا بطل!');render();}
-function goto(n){state.n=Math.max(0,Math.min(slides.length-1,n));state.show=false;state.sel=-1;state.picked=-1;state.wordOrder=[];state.running=false;render();}
+function star(v=1){state.points[state.team]+=v;keep();say('أحسنت يا بطل!');draw();}
+function goto(n){state.n=Math.max(0,Math.min(slides.length-1,n));state.show=false;state.sel=-1;state.picked=-1;state.wordOrder=[];state.running=false;draw();}
 function heading(tag,title,sub=''){return '<div class="meta">'+tag+'</div><h1 class="title">'+title+'</h1>'+(sub?'<p class="lead">'+sub+'</p>':'');}
 function button(label,call,variant=''){return '<button class="btn '+variant+'" onclick="'+call+'">'+label+'</button>';}
 function box(text){return '<div class="box">'+text+'</div>';}
